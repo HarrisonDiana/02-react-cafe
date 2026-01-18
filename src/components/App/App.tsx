@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import type { Votes, VoteType } from './types/votes';
-import CafeInfo from './components/CafeInfo/CafeInfo';
-import VoteOptions from './components/VoteOptions/VoteOptions';
-import VoteStats from './components/VoteStats/VoteStats';
-import Notification from './components/Notification/Notification';
+import type { Votes, VoteType } from '../../types/votes';
+
+import CafeInfo from '../CafeInfo/CafeInfo';
+import VoteOptions from '../VoteOptions/VoteOptions';
+import VoteStats from '../VoteStats/VoteStats';
+import Notification from '../Notification/Notification';
+
 import styles from './App.module.css';
 
 export default function App() {
@@ -14,7 +16,7 @@ export default function App() {
   });
 
   const handleVote = (type: VoteType) => {
-    setVotes(prev => ({ ...prev, [type]: prev[type] + 1 }));
+    setVotes((prev: Votes) => ({ ...prev, [type]: prev[type] + 1 }));
   };
 
   const resetVotes = () => {
